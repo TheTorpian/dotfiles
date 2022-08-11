@@ -1,0 +1,16 @@
+syntax on
+set showcmd
+set showmatch
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set autoindent
+set smartindent
+set number relativenumber
+set titlestring=%t
+set title
+set ruler
+set mouse=a
+colorscheme default
+
