@@ -1,0 +1,82 @@
+window:
+  padding:
+    x: 5
+    y: 5
+  class:
+    instance: Alacritty
+    general: Alacritty
+  opacity: 1
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+colors:
+  primary:
+    background: "#1a1818"
+    foreground: "#916a6a"
+  normal:
+    black: "#1a1818"
+    red: "#f7768e"
+    green: "#9ece6a"
+    yellow: "#e0af68"
+    blue: "#7aa2f7"
+    magenta: "#ad8ee6"
+    cyan: "#449dab"
+    white: "#ed2626"
+  bright:
+    black: "#1a1818"
+    red: "#ff7a93"
+    green: "#b9f27c"
+    yellow: "#ff9e64"
+    blue: "#7da6ff"
+    magenta: "#bb9af7"
+    cyan: "#0db9d7"
+    white: "#acb0d0"
+  
+# Font configuration (changes require restart)
+font:
+  normal:
+    family: Inconsolata
+  # Point size of the font
+  size: 10.0
+
+  # Offset is the extra space around each character. offset.y can be thought of
+  # as modifying the linespacing, and offset.x as modifying the letter spacing.
+  offset:
+    x: 0
+    y: 0
+
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increase the x offset to move the glyph to
+  # the right, increase the y offset to move the glyph upward.
+  glyph_offset:
+    x: 0
+    y: 0
+
+  # Thin stroke font rendering (macOS only)
+  #
+  # Thin strokes are suitable for retina displays, but for non-retina you
+  # probably want this set to false.
+  #
+  # macOS >= 10.14.x:
+  #
+  # If the font quality on non-retina display looks bad then set
+  # `use_thin_strokes` to `true` and enable font smoothing by running the
+  # following command:
+  #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
+  #
+  # This is a global setting and will require a log out or restart to take
+  # effect.
+  use_thin_strokes: true
+
+# When true, bold text is drawn using the bright variant of colors.
+draw_bold_text_with_bright_colors: false
+
+
+selection:
+  save_to_clipboard: false
+
+key_bindings:
+  - { key: Return, mods: Super|Shift, action: SpawnNewInstance }
+

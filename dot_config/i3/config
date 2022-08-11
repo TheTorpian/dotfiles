@@ -1,0 +1,168 @@
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+set $alt Mod1
+
+set $coloract "#24775c"
+set $colorin "#18513f"
+set $terminal alacritty
+set_from_resource $split i3wm.color10 "#67b11d"
+set_from_resource $coloru i3wm.color2 "#67b11d"
+set_from_resource $color0 i3wm.color0 "#1f2022"
+set_from_resource $color8 i3wm.color8 "#585858"
+set_from_resource $color15 i3wm.color15 "#f8f8f8"
+
+# Font for window titles.
+font pango:monospace 8 
+gaps outer 2
+gaps inner 4
+new_window pixel 0
+
+########## COLORS ##########
+
+# class                 border    backgr    text    indicator child_border
+client.focused          $coloract $coloract $color15 $split  $coloract
+client.focused_inactive $coloract $coloract $color15 $split  $colorin
+client.unfocused        $colorin  $colorin  $color15 $split  $colorin
+client.urgent           $coloru   $coloru   $color15 $coloru $coloru
+client.placeholder      $color0   $color8   $color15 $color0 $color8
+client.background       $color0
+
+
+###### KEYBINDINGS #######
+
+floating_modifier $mod
+
+
+# Media volume controls
+bindsym XF86AudioRaiseVolume exec ~/.config/dunst/volume.sh up
+bindsym XF86AudioLowerVolume exec ~/.config/dunst/volume.sh down
+bindsym XF86AudioMute exec ~/.config/dunst/volume.sh mute
+
+# Brightness controls
+bindsym XF86MonBrightnessUp exec ~/.config/dunst/brightness.sh up
+bindsym XF86MonBrightnessDown exec ~/.config/dunst/brightness.sh down
+
+# change focus
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal and vertical orientation
+bindsym $mod+s split v
+bindsym $mod+v split h
+
+# enter fullscreen mode for the focused container
+bindsym $mod+c fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+t layout tabbed
+bindsym $mod+Shift+s layout stacked
+bindsym $mod+Shift+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# bindsym $mod+o sticky toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+p focus parent
+
+###### EXECUTE PROGRAMS ######
+
+bindsym $mod+f       exec alacritty -e ranger
+bindsym $mod+Shift+f exec nautilus
+bindsym $mod+w       exec firefox
+bindsym $mod+d       exec rofi -show run
+bindsym $alt+Tab     exec rofi -show window
+bindsym $mod+Return  exec $terminal
+bindsym $mod+Shift+q kill
+
+# printscreen
+bindsym --release Print exec scrot
+bindsym --release Shift+Print exec scrot -s
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize windows
+bindsym $mod+y resize shrink width 30 px or 10 ppt
+bindsym $mod+u resize grow height 30 px or 10 ppt
+bindsym $mod+i resize shrink height 30 px or 10 ppt
+bindsym $mod+o resize grow width 30 px or 10 ppt
+
+# resize gaps
+bindsym $mod+Shift+y gaps outer current plus 2
+bindsym $mod+Shift+u gaps outer current minus 2
+bindsym $mod+Shift+i gaps inner current plus 2
+bindsym $mod+Shift+o gaps inner current minus 2
+
+
+##### WINDOWS ######
+
+for_window [class=".*"] border pixel 0
+for_window [class="feh"] floating enable
+for_window [class="Pamac-manager"] floating enable
+
+
+###### STARTUP ######
+
+# polkit
+exec_always --no-startup-id lxsession &
+
+# Picom
+exec_always picom --experimental-backends
+
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Background image
+exec ~/.fehbg &
+
+# Network manager
+exec --no-startup-id iwd &
+
+# betterlockscreen
+exec --no-startup-id betterlockscreen -w dim
+bindsym $mod+l exec betterlockscreen -l dim
+
+# dunst
+exec --no-startup-id dunst
+
