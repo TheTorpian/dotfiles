@@ -87,7 +87,7 @@ bindsym $mod+w       exec firefox
 bindsym $mod+d       exec rofi -show run
 bindsym $alt+Tab     exec rofi -show window
 bindsym $mod+Return  exec $terminal
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # printscreen
 bindsym --release Print exec scrot
