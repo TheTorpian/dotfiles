@@ -13,7 +13,7 @@ function send_notification {
   brightness=$(get_brightness)
   bar=$(seq -s "─" 0 $((brightness / 5)) | sed 's/[0-9]//g')
   # Send the notification
-  dunstify -i "$icon" -r 5555 -u normal "    $bar"
+  dunstify -i "$icon" -r 5555 -u low "    $bar"
 }
 
 case $1 in

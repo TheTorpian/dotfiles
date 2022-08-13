@@ -37,7 +37,7 @@
     scale = 0
 
     # Maximum number of notification (0 means no limit)
-    notification_limit = 3
+    notification_limit = 5
 
     ### Progress bar ###
 
@@ -156,7 +156,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "<b>%s</b>\n%b\n%p"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -308,7 +308,7 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#373b41"
     foreground = "#fff"
-    timeout = 10
+    timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
