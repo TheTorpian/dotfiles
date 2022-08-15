@@ -14,15 +14,15 @@ function is_mute {
 }
 
 function send_notification {
-  iconSound="~/.icons/dunst/volume-high.png"
-  iconMuted="~/.icons/dunst/volume-xmark.png"
+  iconSound="~/.icons/dunst/audio_medium.svg"
+  iconMuted="~/.icons/dunst/audio_mute.svg"
   if is_mute ; then
     dunstify -i $iconMuted -r 2593 -u low "mute"
   else
     volume=$(get_volume)
     bar=$(seq --separator="─" 0 "$((volume / 5))" | sed 's/[0-9]//g')
     # Send the notification
-    dunstify -i $iconSound -r 2593 -u low "    $bar"
+    dunstify -i $iconSound -r 2593 -u low "$bar"
   fi
 }
 
