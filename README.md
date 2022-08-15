@@ -1,5 +1,6 @@
 # Info
 Managed with chezmoi `https://www.chezmoi.io/`
+Clone into `~/.local/share/chezmoi`, then use `chezmoi apply`
 
 # Requirements
 ## Fonts
