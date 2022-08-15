@@ -14,8 +14,8 @@ function is_mute {
 }
 
 function send_notification {
-  iconSound="~/.icons/dunst/audio_medium.svg"
-  iconMuted="~/.icons/dunst/audio_mute.svg"
+  iconSound="~/.config/dunst/icons/audio_medium.svg"
+  iconMuted="~/.config/dunst/icons/audio_mute.svg"
   if is_mute ; then
     dunstify -i $iconMuted -r 2593 -u low "mute"
   else
