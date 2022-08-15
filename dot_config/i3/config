@@ -81,7 +81,7 @@ bindsym $mod+p focus parent
 
 ###### EXECUTE PROGRAMS ######
 
-bindsym $mod+f       exec alacritty -e ranger
+bindsym $mod+f       exec $terminal -e ranger
 bindsym $mod+Shift+f exec nautilus
 bindsym $mod+w       exec firefox
 bindsym $mod+d       exec rofi -show run
