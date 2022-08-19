@@ -1,5 +1,5 @@
 # Info
-Managed with chezmoi `https://www.chezmoi.io/`
+Managed with chezmoi `https://www.chezmoi.io/`<br />
 Clone into `~/.local/share/chezmoi`, then use `chezmoi apply`
 
 # Requirements
