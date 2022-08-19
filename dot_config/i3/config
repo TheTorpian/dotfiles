@@ -146,10 +146,10 @@ for_window [class="Pavucontrol"] floating enable
 ###### STARTUP ######
 
 # polkit
-exec_always --no-startup-id lxsession &
+exec --no-startup-id lxsession &
 
 # Picom
-exec_always picom --experimental-backends
+exec picom --experimental-backends
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
